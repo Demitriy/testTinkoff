@@ -1,0 +1,5 @@
+com\task\shapes\utils\Point.class
+com\task\shapes\exceptions\NotExistingShapeException.class
+com\task\shapes\utils\TriangleUtil.class
+com\task\JUnitTestRunner.class
+com\task\shapes\triangle\RightTriangleTest.class
