@@ -11,6 +11,7 @@
     <properties>
         <testng.version>6.11</testng.version>
         <selenium.version>3.8.1</selenium.version>
+        <qatools.version>1.18</qatools.version>
         <source>1.8</source>
         <target>1.8</target>
     </properties>
@@ -26,15 +27,10 @@
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
         </dependency>
-<!--        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
-            <version>3.8.1</version>
-        </dependency>-->
         <dependency>
             <groupId>ru.yandex.qatools.htmlelements</groupId>
             <artifactId>htmlelements-java</artifactId>
-            <version>1.18</version> <!-- 1.18+ is SELENIUM 3.5.1+ compatible -->
+            <version>${qatools.version}</version>
         </dependency>
     </dependencies>
 

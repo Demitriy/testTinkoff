@@ -1,6 +1,5 @@
 package com.task.myTestFramework.factory;
 
-import com.task.myTestFramework.models.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -34,8 +33,8 @@ public class MyPageFactory {
 
     public static boolean isChildBasePage(Class clazz) {
         while (clazz != null && clazz != Object.class) {
-            if (clazz == BasePage.class) return true;
-            clazz = clazz.getSuperclass();
+/*            if (clazz == BasePage.class) return true;
+            clazz = clazz.getSuperclass();*/
         }
         return false;
     }

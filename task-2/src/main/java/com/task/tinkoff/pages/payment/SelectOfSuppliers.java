@@ -1,45 +1,39 @@
 package com.task.tinkoff.pages.payment;
 
-import com.task.myTestFramework.Utils;
-import com.task.myTestFramework.factory.MyLocatorFactory;
-import com.task.myTestFramework.factory.MyPageFactory;
-import com.task.myTestFramework.models.BasePage;
 import com.task.tinkoff.pages.BaseTinkoffPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
-/**
- * Created by Dima on 04.02.2018.
- */
-public class SelectOfSuppliers extends BasePage {
+import java.util.List;
+
+public class SelectOfSuppliers extends BaseTinkoffPage {
     public SelectOfSuppliers(WebDriver webDriver) {
         super(webDriver);
     }
 
-    public SelectOfSuppliers(WebDriver webDriver, String xpath) {
-        super(webDriver, xpath);
+    @FindBy(xpath = ".//*[@class = 'PaymentsCatalogHeader__regionSelect_3MRVi']")
+    public Region region;
+    public static class Region extends HtmlElement {
+        public void click() {
+            this.getWrappedElement().click();
+        }
     }
 
-    @FindBy(xpath = "/ul/li[1]")
-    public Supplier HCSMoscow;
+    @FindBy(xpath = ".//*[@class = 'UILayoutSection__section_32gTj']")
+    public Services services;
+    public static class Services extends HtmlElement {
+        @FindBy(xpath = ".//ul/li")
+        public List<WebElement> services;
 
-    public static class Supplier extends BasePage {
-        public Supplier(WebDriver webDriver) {
-            super(webDriver);
+        public void selectByIndex(int index) {
+            services.get(index - 1).click();
         }
 
-        public Supplier(WebDriver webDriver, String xpath) {
-            super(webDriver, xpath);
-        }
-
-        public String getName() {
-
-            return webDriver.findElement(By.xpath(xpath + "//span[contains(@class, 'ui-menu__link')]//span")).getText();
-        }
-
-        public void click() {
-            webDriver.findElement(By.xpath(xpath + "//span[contains(@class, 'ui-menu__link')]//span")).click();
+        public String getNameByIndex(int index) {
+            return services.get(index - 1).findElement(By.xpath(".//span[2]//*[@data-qa-node = 'WrapTag']")).getText();
         }
     }
 }
