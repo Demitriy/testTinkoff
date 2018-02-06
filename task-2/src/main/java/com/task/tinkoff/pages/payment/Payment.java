@@ -14,6 +14,20 @@ public class Payment extends BaseTinkoffPage {
         super(webDriver);
     }
 
+    @FindBy(xpath = ".//*[@class ='Input__label_3kceY']/input")
+    public WebElement search;
+    @FindBy(xpath = "(.//*[contains(@class, 'Grid__root_2zhCT')])[1]")
+    public DropDownList dropDownList;
+    public static class DropDownList extends HtmlElement {
+        @FindBy(xpath = ".//*[contains(@class, 'Grid__column_U_INn')]")
+        public List<WebElement> elements;
+
+        public WebElement selectElementByIndex(int index) {
+            String xpath = ".//*[@data-qa-node = 'Text']";
+            return elements.get(0).findElement(By.xpath(xpath));
+        }
+    }
+
     @FindBy(xpath = ".//*[@class = 'MainPageBlockStyles__container_3vY9h']")
     public ReducedListCategoriesPayment reducedListCategoriesPayment;
     public static class ReducedListCategoriesPayment extends HtmlElement {
