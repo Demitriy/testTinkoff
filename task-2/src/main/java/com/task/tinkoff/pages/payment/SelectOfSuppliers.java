@@ -18,7 +18,7 @@ public class SelectOfSuppliers extends BaseTinkoffPage {
     public Region region;
     public static class Region extends HtmlElement {
         public void click() {
-            this.getWrappedElement().click();
+            this.getWrappedElement().findElement(By.xpath("./span")).click();
         }
     }
 

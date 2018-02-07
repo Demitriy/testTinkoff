@@ -1,12 +1,13 @@
 package com.task.tinkoff.pages.payment;
 
-import com.task.myTestFramework.Utils;
 import com.task.tinkoff.pages.BaseTinkoffPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Timeout;
 import ru.yandex.qatools.htmlelements.element.HtmlElement;
+import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory;
 
 import java.util.List;
 
@@ -14,6 +15,9 @@ public class SelectRegion extends BaseTinkoffPage {
     public SelectRegion(WebDriver webDriver) {
         super(webDriver);
     }
+
+    @FindBy(xpath = ".//span[@class = 'HeaderMenuItem__itemContainer_3Qu__' and text() = 'Платежи']")
+    public WebElement payment;
 
     @FindBy(xpath = ".//*[@class= 'UiRegions__uiRegions__layout_2wFF-']")
     public Regions regions;

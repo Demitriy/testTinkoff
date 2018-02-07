@@ -10,6 +10,12 @@ public class HSCMoscow extends BaseTinkoffPage {
         super(webDriver);
     }
 
+    @FindBy(xpath = ".//a[contains(@class, 'Link__link_3Y7f2')]")
+    public WebElement btnBack;
+
+    @FindBy(xpath = "(.//li[@class = 'HeaderMenuItem__item_2v2UK'])[3]")
+    public WebElement payment;
+
     @FindBy(xpath = ".//span[text() = 'Оплатить ЖКУ в Москве']")
     public WebElement payForHSCMoscowButton;
 

@@ -8,9 +8,6 @@ import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 import java.util.List;
 
-/**
- * Created by Dima on 04.02.2018.
- */
 public class BaseTinkoffPage extends BasePage {
 
     public BaseTinkoffPage(WebDriver webDriver) {

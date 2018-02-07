@@ -22,9 +22,9 @@ public class Payment extends BaseTinkoffPage {
         @FindBy(xpath = ".//*[contains(@class, 'Grid__column_U_INn')]")
         public List<WebElement> elements;
 
-        public WebElement selectElementByIndex(int index) {
+        public String selectElementByIndex(int index) {
             String xpath = ".//*[@data-qa-node = 'Text']";
-            return elements.get(0).findElement(By.xpath(xpath));
+            return elements.get(index).findElement(By.xpath(xpath)).getText();
         }
     }
 
